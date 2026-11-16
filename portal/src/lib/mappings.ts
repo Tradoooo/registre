@@ -7,8 +7,8 @@ import type { ControlMapping, MappingStatus, ReuseMetric } from '../api/types.ts
 import { formatPercent } from './format.ts';
 
 export const MAPPING_STATUS_META: Record<MappingStatus, { label: string; color: string }> = {
-  PROPOSED: { label: 'Proposed', color: '#db6d28' },
-  VALIDATED: { label: 'Validated', color: '#3fb950' },
+  PROPOSED: { label: 'Proposed', color: '#FF8A4C' },
+  VALIDATED: { label: 'Validated', color: '#2FE3A0' },
   REJECTED: { label: 'Rejected', color: '#8b949e' }
 };
 
@@ -52,9 +52,9 @@ export function sortMappings(mappings: readonly ControlMapping[]): ControlMappin
 
 /** Colour of a model confidence: trusted green, cautious orange, weak red. */
 export function confidenceColor(confidence: number): string {
-  if (confidence >= 0.85) return '#3fb950';
-  if (confidence >= 0.7) return '#d29922';
-  return '#db6d28';
+  if (confidence >= 0.85) return '#2FE3A0';
+  if (confidence >= 0.7) return '#FFB020';
+  return '#FF8A4C';
 }
 
 /** The reuse factor as a readable ratio, e.g. 1.45 -> "1.45 attachments per evidence". */

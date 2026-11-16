@@ -19,8 +19,8 @@ export interface VerdictRow {
 }
 
 export const VERDICT_META: Record<VerdictValue, { label: string; color: string }> = {
-  OK: { label: 'Passed', color: '#3fb950' },
-  FAILED: { label: 'Failed', color: '#f85149' },
+  OK: { label: 'Passed', color: '#2FE3A0' },
+  FAILED: { label: 'Failed', color: '#FF6B5E' },
   NOT_CONFIGURED: { label: 'Not configured', color: '#8b949e' }
 };
 
@@ -71,9 +71,9 @@ function signatureDescription(result: VerificationResult, value: VerdictValue): 
 export type OverallVerdict = 'INTACT' | 'ALTERED' | 'UNSIGNED';
 
 export const OVERALL_META: Record<OverallVerdict, { label: string; color: string }> = {
-  INTACT: { label: 'Intact and signed', color: '#3fb950' },
-  ALTERED: { label: 'Altered — do not trust', color: '#f85149' },
-  UNSIGNED: { label: 'Intact, not signed', color: '#d29922' }
+  INTACT: { label: 'Intact and signed', color: '#2FE3A0' },
+  ALTERED: { label: 'Altered — do not trust', color: '#FF6B5E' },
+  UNSIGNED: { label: 'Intact, not signed', color: '#FFB020' }
 };
 
 /** One-word verdict of the whole verification. */
@@ -88,9 +88,9 @@ export function overallVerdict(result: VerificationResult): OverallVerdict {
 export type ShareState = 'ACTIVE' | 'EXPIRED' | 'REVOKED';
 
 export const SHARE_STATE_META: Record<ShareState, { label: string; color: string }> = {
-  ACTIVE: { label: 'Active', color: '#3fb950' },
+  ACTIVE: { label: 'Active', color: '#2FE3A0' },
   EXPIRED: { label: 'Expired', color: '#8b949e' },
-  REVOKED: { label: 'Revoked', color: '#f85149' }
+  REVOKED: { label: 'Revoked', color: '#FF6B5E' }
 };
 
 /** State of a grant at `now`: revocation wins, then expiry (API `isShareActive`). */

@@ -66,8 +66,8 @@ export function metricLabel(metric: QualityMetric): string {
 }
 
 export const VERDICT_META: Record<QualityVerdict, { label: string; color: string }> = {
-  PASS: { label: 'On target', color: '#3fb950' },
-  FAIL: { label: 'Below target', color: '#f85149' },
+  PASS: { label: 'On target', color: '#2FE3A0' },
+  FAIL: { label: 'Below target', color: '#FF6B5E' },
   UNKNOWN: { label: 'Unknown', color: '#8b949e' }
 };
 

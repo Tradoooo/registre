@@ -159,9 +159,11 @@
 }
 
 .btn-primary {
-  background: var(--accent-dim);
-  border-color: var(--accent-dim);
-  color: #fff;
+  background: var(--text);
+  border-color: var(--text);
+  border-radius: 999px;
+  color: #0e0f11;
+  font-weight: 600;
 }
 
 .btn-primary:hover:not(:disabled) {
@@ -170,7 +172,7 @@
 }
 
 .btn-danger {
-  border-color: rgba(248, 81, 73, 0.5);
+  border-color: rgba(255, 107, 94, 0.5);
   color: #ff9b95;
 }
 
@@ -315,96 +317,4 @@
   gap: var(--gap-sm);
   padding: 12px 16px;
   border-top: 1px solid var(--border);
-}
-
-/* --------------------------------------------------------------- login */
-
-.login-shell {
-  display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  height: 100%;
-}
-
-@media (max-width: 900px) {
-  .login-shell {
-    grid-template-columns: 1fr;
-  }
-}
-
-.login-pitch {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 18px;
-  padding: 48px 56px;
-  background: radial-gradient(120% 90% at 0% 0%, #16283d 0%, #0b0f14 62%);
-  border-right: 1px solid var(--border);
-}
-
-.login-title {
-  font-size: 30px;
-  line-height: 1.15;
-  letter-spacing: -0.025em;
-}
-
-.login-lead {
-  max-width: 46ch;
-  color: var(--text-dim);
-  font-size: 13.5px;
-}
-
-.login-points {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin: 4px 0 0;
-  padding: 0;
-  list-style: none;
-  font-size: 12.5px;
-  color: var(--text-dim);
-}
-
-.login-points li::before {
-  content: '▸';
-  margin-right: 8px;
-  color: var(--accent);
-}
-
-.login-form-side {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 32px;
-}
-
-.login-card {
-  width: min(420px, 100%);
-}
-
-.demo-account {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  width: 100%;
-  padding: 8px 10px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  background: var(--bg);
-  color: var(--text);
-  font: inherit;
-  font-size: 12px;
-  text-align: left;
-  cursor: pointer;
-}
-
-.demo-account:hover {
-  border-color: var(--accent);
-  background: var(--bg-hover);
-}
-
-.demo-login {
-  font-family: var(--mono);
-  font-size: 11.5px;
-  color: var(--text-dim);
 }

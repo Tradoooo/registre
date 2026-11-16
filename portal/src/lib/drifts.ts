@@ -14,22 +14,22 @@ export interface DriftMeta {
 export const DRIFT_KIND_META: Record<DriftKind, DriftMeta> = {
   STATE_CHANGED: {
     label: 'State changed',
-    color: '#d29922',
+    color: '#FFB020',
     description: 'The observed state differs from the previous attestation.'
   },
   MISSING_RUN: {
     label: 'Missing run',
-    color: '#f85149',
+    color: '#FF6B5E',
     description: 'No attestation arrived within the cadence plus its grace period.'
   },
   THRESHOLD_CROSSED: {
     label: 'Threshold crossed',
-    color: '#db6d28',
+    color: '#FF8A4C',
     description: 'The attested state names a failed run or a crossed limit.'
   },
   RECOVERED: {
     label: 'Recovered',
-    color: '#3fb950',
+    color: '#2FE3A0',
     description: 'The observed state returned to its earlier value.'
   }
 };
