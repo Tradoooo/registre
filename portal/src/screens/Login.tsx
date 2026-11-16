@@ -8,55 +8,79 @@ import { Button, Field, TextInput } from '../components/Form.tsx';
 import { Card, CardBody, CardHeader, Notice } from '../components/Card.tsx';
 import { ROLE_HINT, ROLE_LABEL } from '../lib/states.ts';
 import { describeError } from '../lib/hooks.ts';
+import { PartiesBand } from './login/Parties.tsx';
 
 export function LoginScreen() {
   const { mocks, demoAccounts } = useApp();
   return (
     <div className="login-shell">
-      <LoginPitch />
-      <section className="login-form-side">
-        <div className="login-card stack">
-          <LoginForm accounts={demoAccounts} />
-          <DemoAccounts accounts={demoAccounts} />
-          {mocks ? (
-            <Notice tone="info">
-              Offline demonstration build: the data is generated for the hackathon and contains no
-              real customer or partner material.
-            </Notice>
-          ) : null}
+      <LoginTopBar />
+      <main className="login-hero">
+        <section className="login-pitch">
+          <LoginPitch />
+          <div className="login-card">
+            <LoginForm accounts={demoAccounts} />
+          </div>
+        </section>
+        <LoginVisual />
+      </main>
+      <DemoAccounts accounts={demoAccounts} />
+      {mocks ? (
+        <div className="login-offline">
+          <Notice tone="info">
+            Offline demonstration build: the data is generated for the hackathon and contains no
+            real customer or partner material.
+          </Notice>
         </div>
-      </section>
+      ) : null}
+      <PartiesBand />
     </div>
+  );
+}
+
+function LoginTopBar() {
+  return (
+    <header className="login-top">
+      <div className="brand">
+        <BrandMark />
+        <span className="brand-name">Registre</span>
+      </div>
+      <div className="login-tags">
+        <span>AWS MSP AI Hackathon · Track 1</span>
+        <span>Amazon Bedrock · Node 22 · AWS CDK</span>
+      </div>
+    </header>
   );
 }
 
 function LoginPitch() {
   return (
-    <section className="login-pitch">
-      <div className="brand">
-        <BrandMark />
-        <span>
-          <span className="brand-name">Registre</span>
-          <span className="brand-sub"> audit evidence register</span>
-        </span>
-      </div>
+    <>
+      <span className="login-label">01 / Continuous audit-evidence register</span>
       <h1 className="login-title">
-        Audit preparation stops being
-        <br />a hunt for documents.
+        Your audit evidence,
+        <br />
+        <em>ready all year.</em>
       </h1>
       <p className="login-lead">
-        Registre reads every document a managed service provider produces, attaches it to the
-        controls it supports, checks it is fresh and complete, and keeps the register ready for the
-        auditor. The tool never decides that a control is satisfactory: it says what evidence
-        exists, what is missing, and what a human must verify.
+        No more weeks of panic before the AWS MSP audit. Registre collects, reads, links and keeps
+        your evidence fresh, continuously, with Amazon Bedrock. It never decides that a control is
+        satisfactory: it says what evidence exists, what is missing, and what a human must verify.
       </p>
-      <ul className="login-points">
-        <li>Readiness by framework, with the five evidence states</li>
-        <li>Every attachment justified by a quoted passage, verified by code</li>
-        <li>Answers with the document, the page and the date — or no answer at all</li>
-        <li>Frozen audit pack with known gaps and verified checksums</li>
-      </ul>
-    </section>
+    </>
+  );
+}
+
+/** The 3D registre tile of the V1 board, rendered from the brand mark. */
+function LoginVisual() {
+  return (
+    <div className="login-visual" aria-hidden="true">
+      <div className="login-halo" />
+      <div className="login-tile">
+        <BrandMark size={360} />
+      </div>
+      <span className="login-folio">Folio 01 — evidence, attachments, states, pack</span>
+    </div>
   );
 }
 
@@ -136,36 +160,30 @@ function DemoAccounts({ accounts }: { accounts: readonly DemoAccount[] }) {
   const [error, setError] = useState<string | null>(null);
 
   return (
-    <Card>
-      <CardHeader title="Demo roles" subtitle="Same data behind every role, filtered by rights" />
-      <CardBody>
-        <div className="stack">
-          {accounts.map((account) => (
-            <button
-              key={account.principal.id}
-              type="button"
-              className="demo-account"
-              onClick={() => {
-                setError(null);
-                signIn(account.login, account.password).catch((cause: unknown) =>
-                  setError(describeError(cause))
-                );
-              }}
-            >
-              <span>
-                <strong>{ROLE_LABEL[account.principal.role]}</strong>
-                <span className="faint small"> — {ROLE_HINT[account.principal.role]}</span>
-                <br />
-                <span className="demo-login">
-                  {account.login} / {account.password}
-                </span>
-              </span>
-              <span className="faint small">use</span>
-            </button>
-          ))}
-          {error ? <Notice>{error}</Notice> : null}
-        </div>
-      </CardBody>
-    </Card>
+    <section className="login-roles" aria-label="Demo roles">
+      <span className="login-label">Demo roles · same data, filtered by rights · one click</span>
+      <div className="login-role-grid">
+        {accounts.map((account) => (
+          <button
+            key={account.principal.id}
+            type="button"
+            className="demo-account"
+            onClick={() => {
+              setError(null);
+              signIn(account.login, account.password).catch((cause: unknown) =>
+                setError(describeError(cause))
+              );
+            }}
+          >
+            <strong>{ROLE_LABEL[account.principal.role]}</strong>
+            <span className="demo-hint">{ROLE_HINT[account.principal.role]}</span>
+            <span className="demo-login">
+              {account.login} / {account.password}
+            </span>
+          </button>
+        ))}
+      </div>
+      {error ? <Notice>{error}</Notice> : null}
+    </section>
   );
 }

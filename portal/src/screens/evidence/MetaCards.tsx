@@ -90,7 +90,7 @@ export function FlagsCard({ evidence }: { evidence: Evidence }) {
 
 function Flag({ on, label }: { on: boolean; label: string }) {
   return (
-    <span className={on ? 'badge' : 'badge badge-soft flag-off'} style={on ? { color: 'var(--warn)', background: 'rgba(210,153,34,0.14)' } : undefined}>
+    <span className={on ? 'badge' : 'badge badge-soft flag-off'} style={on ? { color: 'var(--warn)', background: 'rgba(255, 176, 32,0.14)' } : undefined}>
       {on ? <span className="badge-dot" style={{ background: 'var(--warn)' }} /> : null}
       {label}
     </span>

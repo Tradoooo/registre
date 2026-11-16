@@ -38,27 +38,27 @@ export const STATE_META: Record<ControlState, StateMeta> = {
   COVERED: {
     label: 'Covered',
     description: 'Applied evidence is fresh and carries every expected element.',
-    color: '#3fb950'
+    color: '#2FE3A0'
   },
   TO_RENEW: {
     label: 'To renew',
     description: 'The best evidence expires within the renewal lead time.',
-    color: '#d29922'
+    color: '#FFB020'
   },
   TO_VERIFY: {
     label: 'To verify',
     description: 'Only proposed attachments, or a partial sufficiency, are available.',
-    color: '#db6d28'
+    color: '#4C8DFF'
   },
   EXPIRED: {
     label: 'Expired',
     description: 'Every applied evidence is older than the control periodicity.',
-    color: '#f85149'
+    color: '#FF6B5E'
   },
   NO_EVIDENCE: {
     label: 'No evidence',
     description: 'No evidence is applied to this control yet.',
-    color: '#da3633'
+    color: '#E5484D'
   }
 };
 
@@ -97,17 +97,17 @@ export const SUFFICIENCY_META: Record<SufficiencyClass, StateMeta> = {
   COMPLETE: {
     label: 'Complete',
     description: 'Every expected element is present in the attached evidence.',
-    color: '#3fb950'
+    color: '#2FE3A0'
   },
   PARTIAL: {
     label: 'Partial',
     description: 'One or more expected elements are missing.',
-    color: '#d29922'
+    color: '#FFB020'
   },
   TO_VERIFY: {
     label: 'To verify',
     description: 'The reading confidence is too low to trust the assessment.',
-    color: '#db6d28'
+    color: '#FF8A4C'
   }
 };
 
@@ -137,8 +137,8 @@ export const ATTACHMENT_STATUS_LABEL: Record<AttachmentStatus, string> = {
 };
 
 export const ATTACHMENT_STATUS_COLOR: Record<AttachmentStatus, string> = {
-  PROPOSED: '#db6d28',
-  APPLIED: '#3fb950',
+  PROPOSED: '#FF8A4C',
+  APPLIED: '#2FE3A0',
   REJECTED: '#8b949e'
 };
 
@@ -152,7 +152,7 @@ export const ACCESS_LABEL: Record<AccessLevel, string> = {
 
 export const ACCESS_COLOR: Record<AccessLevel, string> = {
   PUBLIC: '#8b949e',
-  INTERNAL: '#58a6ff',
+  INTERNAL: '#4C8DFF',
   RESTRICTED: '#a371f7'
 };
 

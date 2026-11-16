@@ -84,7 +84,7 @@
 
 .draft-todo {
   border-color: var(--warn);
-  background: rgba(210, 153, 34, 0.08);
+  background: rgba(255, 176, 32, 0.08);
 }
 
 .draft-flag {
